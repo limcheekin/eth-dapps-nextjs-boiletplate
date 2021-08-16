@@ -1,13 +1,32 @@
-const Greeter = artifacts.require("Greeter");
+const Greeter = artifacts.require("Greeter")
 
-/*
- * uncomment accounts to access the test accounts made available by the
- * Ethereum client
- * See docs: https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript
- */
-contract("Greeter", function (/* accounts */) {
-  it("should assert true", async function () {
-    await Greeter.deployed();
-    return assert.isTrue(true);
-  });
-});
+contract('Greeter', (accounts) => {
+  before(async () => {
+    this.greeter = await Greeter.deployed()
+  })
+
+  it('deployed successfully', async () => {
+    const address = await this.greeter.address
+    assert.notEqual(address, 0x0)
+    assert.notEqual(address, '')
+    assert.notEqual(address, null)
+    assert.notEqual(address, undefined)
+  })
+
+  it('initiated properly', async () => {
+    assert.equal(await this.greeter.greeting(), 'Hello, ')
+  })
+
+  it('updated greeting', async () => {
+    const greeting = 'Hi, '
+    await this.greeter.setGreeting(greeting)
+    assert.equal(await this.greeter.greeting(), greeting)
+  })
+
+  it('greet, say hi', async () => {
+    const greeting = 'Hi, '
+    const name = 'Chee Kin'
+    assert.equal(await this.greeter.greet(name), greeting + name)
+  })
+})
+

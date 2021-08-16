@@ -1,5 +1,6 @@
 const Greeter = artifacts.require("Greeter");
 
 module.exports = function (deployer) {
-    deployer.deploy(Greeter);
+    const greeting = 'Hello, ';
+    deployer.deploy(Greeter, greeting);
 };
