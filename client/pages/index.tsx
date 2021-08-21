@@ -5,10 +5,12 @@ import { Component } from 'react'
 import Layout from '../components/Layout'
 import ConnectButton from '../components/ConnectButton'
 import { useDisclosure } from '@chakra-ui/react'
-import AccountModal from "../components/AccountModal"
+import AccountModal from '../components/AccountModal'
+import Greeter from '../components/Greeter'
 
 function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure()
+
   const title = 'Ethereum dApps Next.js Boiletplate'
   return (
     <Layout>
@@ -24,7 +26,7 @@ function Home() {
         </h1>
 
         <p className={styles.description}>
-          A simple dApps to demo the integration of WalletConnect and Greeter smart contract.
+          A simple dApps to demo the integration of MetaMask Wallet and Greeter smart contract.
         </p>
 
         {
@@ -35,6 +37,7 @@ function Home() {
         // Our Account modal will handle open state & closing
         }
         <AccountModal isOpen={isOpen} onClose={onClose} />
+        <Greeter />
       </main>
 
       <footer className={styles.footer}>
