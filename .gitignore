@@ -106,5 +106,8 @@ dist
 # Build directories
 build/
 
-# Ingore vscode
+# Ignore vscode
 .vscode/
+
+# Ignore .secret
+.secret
