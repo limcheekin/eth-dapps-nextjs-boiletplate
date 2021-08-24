@@ -22,7 +22,6 @@ export default function ConnectButton({ handleOpenModal }: Props) {
     dispatch({ type: 'SET_ACCOUNT', payload: account })
     dispatch({ type: 'SET_PROVIDER', payload: provider })
     dispatch({ type: 'SET_WEB3', payload: web3 })
-    console.log('handleConnectWallet invoked')
   }
   // console.log('globalState', globalState)
   return globalState.account ? (

@@ -14,6 +14,7 @@ export async function detectInjectedProvider()  {
   }  
   const web3 = new Web3(provider)
   const accounts = await web3.eth.getAccounts()
+  console.log('accounts', accounts)
   return { account: accounts[0], provider, web3 }
 }
 
