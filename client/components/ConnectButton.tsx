@@ -15,12 +15,13 @@ export default function ConnectButton({ handleOpenModal }: Props) {
 
   async function handleConnectWallet()  {
     const { account, provider, web3 } = await detectInjectedProvider()
-    setEtherBalance(parseFloat(formatEther(
-      await web3.eth.getBalance(account)
-    )))
+    const balance = await web3.eth.getBalance(account)
+    console.log('balance', balance)
+    setEtherBalance(parseFloat(formatEther(balance)))
     dispatch({ type: 'SET_ACCOUNT', payload: account })
     dispatch({ type: 'SET_PROVIDER', payload: provider })
     dispatch({ type: 'SET_WEB3', payload: web3 })
+    console.log('handleConnectWallet invoked')
   }
   // console.log('globalState', globalState)
   return globalState.account ? (

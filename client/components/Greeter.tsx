@@ -4,7 +4,7 @@ import { globalContext } from '../store'
 import abi from "../abi/Greeter.json"
 import { AbiItem } from 'web3-utils'
 
-const contractAddress = `0x4619AaCba38101bf438C2A2Ddd583AAe2A035c54`
+const contractAddress = '0x4619AaCba38101bf438C2A2Ddd583AAe2A035c54'
 const abiItems: AbiItem[] = JSON.parse(JSON.stringify(abi))
 
 // REF: https://dev.to/jacobedawson/send-react-web3-dapp-transactions-via-metamask-2b8n
