@@ -14,7 +14,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
   const [ etherBalance, setEtherBalance] = useState(0);
 
   async function handleConnectWallet()  {
-    const { account, provider, web3 } = await useInjectedProvider();
+    const { account, provider, web3 } = await useInjectedProvider()
     setEtherBalance(parseFloat(formatEther(
       await web3.eth.getBalance(account)
     )))
@@ -22,11 +22,10 @@ export default function ConnectButton({ handleOpenModal }: Props) {
     dispatch({ type: 'SET_PROVIDER', payload: provider })
     dispatch({ type: 'SET_WEB3', payload: web3 })
   }
-
-  console.log('globalState', globalState)
-
+  // console.log('globalState', globalState)
   return globalState.account ? (
     <Box
+      mt={3}
       display="flex"
       alignItems="center"
       background="gray.700"
@@ -65,6 +64,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
     </Box>
   ) : (
     <Button
+      mt={3}
       onClick={handleConnectWallet}
       bg="blue.800"
       color="blue.300"
