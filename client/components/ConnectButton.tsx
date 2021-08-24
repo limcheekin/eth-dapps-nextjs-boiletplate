@@ -1,7 +1,7 @@
 import { Button, Box, Text } from "@chakra-ui/react";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
-import { useInjectedProvider } from "../hooks";
+import { detectInjectedProvider } from "../lib";
 import { useContext, useState } from 'react';
 import { globalContext } from '../store'
 
@@ -14,7 +14,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
   const [ etherBalance, setEtherBalance] = useState(0);
 
   async function handleConnectWallet()  {
-    const { account, provider, web3 } = await useInjectedProvider()
+    const { account, provider, web3 } = await detectInjectedProvider()
     setEtherBalance(parseFloat(formatEther(
       await web3.eth.getBalance(account)
     )))

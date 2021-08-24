@@ -1,7 +1,7 @@
 import Web3 from 'web3'
 import detectEthereumProvider from '@metamask/detect-provider'
 
-export async function useInjectedProvider()  {
+export async function detectInjectedProvider()  {
   const injectedProvider: any = await detectEthereumProvider()
   let provider: any
 
