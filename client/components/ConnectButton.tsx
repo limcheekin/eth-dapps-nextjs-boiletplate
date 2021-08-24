@@ -15,6 +15,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
 
   async function handleConnectWallet()  {
     const { account, provider, web3 } = await detectInjectedProvider()
+    console.log('account', account)
     const balance = await web3.eth.getBalance(account)
     console.log('balance', balance)
     setEtherBalance(parseFloat(formatEther(balance)))
