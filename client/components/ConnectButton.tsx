@@ -1,21 +1,31 @@
 import { Button, Box, Text } from "@chakra-ui/react";
-import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
+import { useInjectedProvider } from "../hooks";
+import { useContext, useState } from 'react';
+import { globalContext } from '../store'
 
 type Props = {
   handleOpenModal: any;
 };
 
 export default function ConnectButton({ handleOpenModal }: Props) {
-  const { activateBrowserWallet, account } = useEthers();
-  const etherBalance = useEtherBalance(account);
+  const { globalState, dispatch } = useContext(globalContext)
+  const [ etherBalance, setEtherBalance] = useState(0);
 
-  function handleConnectWallet() {
-    activateBrowserWallet();
+  async function handleConnectWallet()  {
+    const { account, provider, web3 } = await useInjectedProvider();
+    setEtherBalance(parseFloat(formatEther(
+      await web3.eth.getBalance(account)
+    )))
+    dispatch({ type: 'SET_ACCOUNT', payload: account })
+    dispatch({ type: 'SET_PROVIDER', payload: provider })
+    dispatch({ type: 'SET_WEB3', payload: web3 })
   }
 
-  return account ? (
+  console.log('globalState', globalState)
+
+  return globalState.account ? (
     <Box
       display="flex"
       alignItems="center"
@@ -25,7 +35,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
     >
       <Box px="3">
         <Text color="white" fontSize="md">
-          {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
+          {etherBalance.toFixed(3)} ETH
         </Text>
       </Box>
       <Button
@@ -44,10 +54,10 @@ export default function ConnectButton({ handleOpenModal }: Props) {
         height="38px"
       >
         <Text color="white" fontSize="md" fontWeight="medium" mr="2">
-          {account &&
-            `${account.slice(0, 6)}...${account.slice(
-              account.length - 4,
-              account.length
+          {globalState.account &&
+            `${globalState.account.slice(0, 6)}...${globalState.account.slice(
+              globalState.account.length - 4,
+              globalState.account.length
             )}`}
         </Text>
         <Identicon />

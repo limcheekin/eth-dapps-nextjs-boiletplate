@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
-import { useEthers } from "@usedapp/core";
+import { useEffect, useRef, useContext } from "react";
 import Jazzicon from "@metamask/jazzicon";
 import styled from "@emotion/styled";
+import { globalContext } from '../store'
 
 const StyledIdenticon = styled.div`
   height: 1rem;
@@ -12,7 +12,8 @@ const StyledIdenticon = styled.div`
 
 export default function Identicon() {
   const ref = useRef<HTMLDivElement>();
-  const { account } = useEthers();
+  const { globalState, dispatch } = useContext(globalContext)
+  const { account } = globalState
 
   useEffect(() => {
     if (account && ref.current) {

@@ -13,8 +13,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon, CopyIcon } from "@chakra-ui/icons";
-import { useEthers } from "@usedapp/core";
 import Identicon from "./Identicon";
+import { useContext} from 'react';
+import { globalContext } from '../store'
 
 type Props = {
   isOpen: any;
@@ -22,10 +23,12 @@ type Props = {
 };
 
 export default function AccountModal({ isOpen, onClose }: Props) {
-  const { account, deactivate } = useEthers();
+  const { globalState, dispatch } = useContext(globalContext)
+  const { account } = globalState
 
   function handleDeactivateAccount() {
-    deactivate();
+    //deactivate();
+    dispatch({ type: 'CLEAR_STATE'})
     onClose();
   }
 
@@ -81,7 +84,7 @@ export default function AccountModal({ isOpen, onClose }: Props) {
                 }}
                 onClick={handleDeactivateAccount}
               >
-                Change
+                Disconnect
               </Button>
             </Flex>
             <Flex alignItems="center" mt={2} mb={4} lineHeight={1}>
@@ -147,7 +150,7 @@ export default function AccountModal({ isOpen, onClose }: Props) {
             fontWeight="medium"
             fontSize="md"
           >
-            Your transactions willl appear here...
+            Your transactions will appear here...
           </Text>
         </ModalFooter>
       </ModalContent>

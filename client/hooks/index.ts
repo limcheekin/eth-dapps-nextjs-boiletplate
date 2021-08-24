@@ -1,9 +1,5 @@
-import abi from "../abi/Greeter.json"
 import Web3 from 'web3'
 import detectEthereumProvider from '@metamask/detect-provider'
-
-const contractAddress = '0x4619AaCba38101bf438C2A2Ddd583AAe2A035c54'
-const contractInterface = abi
 
 export async function useInjectedProvider()  {
   const injectedProvider: any = await detectEthereumProvider()
