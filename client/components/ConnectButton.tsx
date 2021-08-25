@@ -1,7 +1,7 @@
 import { Button, Box, Text } from "@chakra-ui/react";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
-import { detectInjectedProvider } from "../lib";
+import { handleInjectedProvider } from "../lib";
 import { useContext, useState } from 'react';
 import { globalContext } from '../store'
 
@@ -13,15 +13,11 @@ export default function ConnectButton({ handleOpenModal }: Props) {
   const { globalState, dispatch } = useContext(globalContext)
   const [ etherBalance, setEtherBalance] = useState(0);
 
-  async function handleConnectWallet()  {
-    const { account, provider, web3 } = await detectInjectedProvider()
-    console.log('account', account)
+  async function handleConnectMetaMask()  {
+    const { account, web3 } = await handleInjectedProvider(dispatch)
     const balance = await web3.eth.getBalance(account)
     console.log('balance', balance)
     setEtherBalance(parseFloat(formatEther(balance)))
-    dispatch({ type: 'SET_ACCOUNT', payload: account })
-    dispatch({ type: 'SET_PROVIDER', payload: provider })
-    dispatch({ type: 'SET_WEB3', payload: web3 })
   }
   // console.log('globalState', globalState)
   return globalState.account ? (
@@ -66,7 +62,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
   ) : (
     <Button
       mt={3}
-      onClick={handleConnectWallet}
+      onClick={handleConnectMetaMask}
       bg="blue.800"
       color="blue.300"
       fontSize="lg"
@@ -82,7 +78,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
         borderColor: "blue.700",
       }}
     >
-      Connect to MetaMask
+      Connect with MetaMask
     </Button>
   );
 }
