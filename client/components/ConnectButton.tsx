@@ -1,32 +1,36 @@
-import { Button, Box, Text } from "@chakra-ui/react";
+import { Button, Box, Text, SimpleGrid } from "@chakra-ui/react";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
-import { handleInjectedProvider } from "../lib";
+import { handleInjectedProvider, handleWalletConnect } from "../lib";
 import { useContext, useState } from 'react';
 import { globalContext } from '../store'
 import BeatLoader from 'react-spinners/BeatLoader'
 
 
 type Props = {
-  handleOpenModal: any;
+  handleOpenModal: any
 };
 
 export default function ConnectButton({ handleOpenModal }: Props) {
   const { globalState, dispatch } = useContext(globalContext)
   const [ etherBalance, setEtherBalance ] = useState(0)
   const [ loading, setLoading ] = useState(false)
+  const [ walletConnectLoading, setWalletConnectLoading ] = useState(false)
 
-  async function handleConnectMetaMask()  {
-    setLoading(true)
+  async function handleConnectWallet(wallet: string)  {
+    wallet === 'WalletConnect' ? setWalletConnectLoading(true) : setLoading(true)
     try {
-      const { account, web3 } = await handleInjectedProvider(dispatch)
+      const { account, web3 } = wallet === 'WalletConnect' ? 
+        await handleWalletConnect(dispatch):
+        await handleInjectedProvider(dispatch)
       const balance = await web3.eth.getBalance(account)
       console.log('balance', balance)
       setEtherBalance(parseFloat(formatEther(balance)))
     } catch (error) {
       console.error(error)  
+    } finally {
+      wallet === 'WalletConnect' ? setWalletConnectLoading(false) : setLoading(false)
     }
-    setLoading(false)
   }
   // console.log('globalState', globalState)
   return globalState.account ? (
@@ -69,27 +73,49 @@ export default function ConnectButton({ handleOpenModal }: Props) {
       </Button>
     </Box>
   ) : (
-    <Button
-      isLoading={loading}
-      spinner={<BeatLoader size={8} color="white" />}
-      mt={3}
-      onClick={handleConnectMetaMask}
-      bg="blue.800"
-      color="blue.300"
-      fontSize="lg"
-      fontWeight="medium"
-      borderRadius="xl"
-      border="1px solid transparent"
-      _hover={{
-        borderColor: "blue.700",
-        color: "blue.400",
-      }}
-      _active={{
-        backgroundColor: "blue.800",
-        borderColor: "blue.700",
-      }}
-    >
-      Connect with MetaMask
-    </Button>
+    <SimpleGrid mt={3} columns={2} spacing={3}>
+      <Button
+        isLoading={loading}
+        spinner={<BeatLoader size={8} color="white" />}
+        onClick={() => handleConnectWallet('MetaMask')}
+        bg="blue.800"
+        color="blue.300"
+        fontSize="lg"
+        fontWeight="medium"
+        borderRadius="xl"
+        border="1px solid transparent"
+        _hover={{
+          borderColor: "blue.700",
+          color: "blue.400",
+        }}
+        _active={{
+          backgroundColor: "blue.800",
+          borderColor: "blue.700",
+        }}
+      >
+        Connect with MetaMask
+      </Button>
+      <Button
+        isLoading={walletConnectLoading}
+        spinner={<BeatLoader size={8} color="white" />}
+        onClick={() => handleConnectWallet('WalletConnect')}
+        bg="gray.800"
+        color="gray.300"
+        fontSize="lg"
+        fontWeight="medium"
+        borderRadius="xl"
+        border="1px solid transparent"
+        _hover={{
+          borderColor: "gray.700",
+          color: "gray.400",
+        }}
+        _active={{
+          backgroundColor: "gray.800",
+          borderColor: "gray.700",
+        }}
+      >
+        Connect with WalletConnect
+      </Button>
+    </SimpleGrid>
   );
 }

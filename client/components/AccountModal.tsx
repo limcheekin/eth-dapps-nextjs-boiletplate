@@ -24,10 +24,13 @@ type Props = {
 
 export default function AccountModal({ isOpen, onClose }: Props) {
   const { globalState, dispatch } = useContext(globalContext)
-  const { account } = globalState
+  const { account, provider } = globalState
 
-  function handleDeactivateAccount() {
+  async function handleDeactivateAccount() {
     //deactivate();
+    if (!provider.isMetaMask) { // isWalletConnect then
+      await provider.disconnect()
+    }
     dispatch({ type: 'CLEAR_STATE'})
     onClose();
   }
@@ -65,7 +68,7 @@ export default function AccountModal({ isOpen, onClose }: Props) {
           >
             <Flex justifyContent="space-between" alignItems="center" mb={3}>
               <Text color="gray.400" fontSize="sm">
-                Connected with MetaMask
+                Connected with {provider?.isMetaMask ? 'MetaMask' : 'WalletConnect'}
               </Text>
               <Button
                 variant="outline"

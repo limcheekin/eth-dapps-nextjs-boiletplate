@@ -51,6 +51,9 @@ function Home() {
         <span className={styles.logo}>
           <Image src="/logos/metamask.png" alt="MetaMask Logo" width={128} height={32} />
         </span>
+        <span className={styles.logo}>
+          <Image src="/logos/walletconnect.png" alt="WalletConnect Logo" width={128} height={32} />
+        </span>      
       </footer>
     </Layout>
   )
