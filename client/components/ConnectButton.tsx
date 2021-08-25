@@ -13,8 +13,8 @@ type Props = {
 
 export default function ConnectButton({ handleOpenModal }: Props) {
   const { globalState, dispatch } = useContext(globalContext)
-  const [ etherBalance, setEtherBalance] = useState(0)
-  const [ loading, setLoading] = useState(false)
+  const [ etherBalance, setEtherBalance ] = useState(0)
+  const [ loading, setLoading ] = useState(false)
 
   async function handleConnectMetaMask()  {
     setLoading(true)
@@ -24,7 +24,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
       console.log('balance', balance)
       setEtherBalance(parseFloat(formatEther(balance)))
     } catch (error) {
-      console.log(error)  
+      console.error(error)  
     }
     setLoading(false)
   }
