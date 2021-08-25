@@ -4,6 +4,8 @@ import Identicon from "./Identicon";
 import { handleInjectedProvider } from "../lib";
 import { useContext, useState } from 'react';
 import { globalContext } from '../store'
+import BeatLoader from 'react-spinners/BeatLoader'
+
 
 type Props = {
   handleOpenModal: any;
@@ -11,13 +13,20 @@ type Props = {
 
 export default function ConnectButton({ handleOpenModal }: Props) {
   const { globalState, dispatch } = useContext(globalContext)
-  const [ etherBalance, setEtherBalance] = useState(0);
+  const [ etherBalance, setEtherBalance] = useState(0)
+  const [ loading, setLoading] = useState(false)
 
   async function handleConnectMetaMask()  {
-    const { account, web3 } = await handleInjectedProvider(dispatch)
-    const balance = await web3.eth.getBalance(account)
-    console.log('balance', balance)
-    setEtherBalance(parseFloat(formatEther(balance)))
+    setLoading(true)
+    try {
+      const { account, web3 } = await handleInjectedProvider(dispatch)
+      const balance = await web3.eth.getBalance(account)
+      console.log('balance', balance)
+      setEtherBalance(parseFloat(formatEther(balance)))
+    } catch (error) {
+      console.log(error)  
+    }
+    setLoading(false)
   }
   // console.log('globalState', globalState)
   return globalState.account ? (
@@ -61,6 +70,8 @@ export default function ConnectButton({ handleOpenModal }: Props) {
     </Box>
   ) : (
     <Button
+      isLoading={loading}
+      spinner={<BeatLoader size={8} color="white" />}
       mt={3}
       onClick={handleConnectMetaMask}
       bg="blue.800"
