@@ -26,7 +26,7 @@ function Home() {
         </h1>
 
         <p className={styles.description}>
-          A simple dApps to demo the integration of MetaMask Wallet and Greeter smart contract.
+          A simple dApps to demo the integration of MetaMask, WalletConnect and Greeter smart contract.
         </p>
 
         {
