@@ -1,7 +1,7 @@
 import { Button, Text, Input, Grid, GridItem } from "@chakra-ui/react"
 import { useState, useContext, useEffect } from "react"
 import { globalContext } from '../store'
-import abi from "../abi/Greeter.json"
+import abi from "../public/Greeter.json"
 import { AbiItem } from 'web3-utils'
 import BeatLoader from 'react-spinners/BeatLoader'
 

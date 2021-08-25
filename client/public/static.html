@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <title>MetaMask Web3js Contract Integration</title>
@@ -46,8 +46,7 @@
                         Start the truffle development environment with <code>truffle develop</code>, run <code>compile</code> and <code>migrate</code> after it is started. 
                     </li>
                     <li>Copy the contract address under <code>Deploying 'Greeter'</code>section, something like <code>0xd3bb084045105850C2C9E59d5e5Ae8Bf90D40829</code> 
-                        and update the <code>let contactAddress = '0x...'</code> at line 102.</li>
-                    <li>Copy the <code>Greeter.json</code> from the <code>build/contracts</code> directory to the <code>client/public</code> directory.</li>
+                        and update the <code>let contractAddress = '0x...'</code> at line 101.</li>
                     <li>You're ready! Go to <a href="http://localhost:3000/static.html">localhost:3000/static.html</a>.      
                 </ul>
             </div>
@@ -99,7 +98,7 @@
         let currentAccount = null;
         let web3;
         let abi;
-        let contactAddress = '0xd3bb084045105850C2C9E59d5e5Ae8Bf90D40829'
+        let contractAddress = '0x4619AaCba38101bf438C2A2Ddd583AAe2A035c54'
         
         function handleAccountsChanged(accounts) {
             console.log('Calling HandleChanged')
@@ -138,10 +137,16 @@
         }
 
         function detectMetaMask() {
-            if (typeof window.ethereum !== 'undefined') {                
-                return true
-            } else {                
-                return false
+            try {
+                if (typeof window.ethereum !== 'undefined') {      
+                    web3 = new Web3(window.ethereum);            
+                    return true
+                } else {
+                    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));                
+                    return false
+                }
+            } catch (error) {
+                alert(error)
             }
         }
 
@@ -149,7 +154,7 @@
             console.log('GetValue')
             const contract = new web3.eth.Contract(
                         abi,
-                        contactAddress
+                        contractAddress
             );
 
             contract.methods.greeting().call().then(function (result) {                
@@ -171,7 +176,7 @@
 
             const contract = new web3.eth.Contract(
                         abi,
-                        contactAddress
+                        contractAddress
             );
             
             contract.methods.setGreeting(input_value).send({from:currentAccount}).then(function (result) {
@@ -195,7 +200,7 @@
 
             const contract = new web3.eth.Contract(
                         abi,
-                        contactAddress
+                        contractAddress
             );
             
             contract.methods.greet(input_value).call().then(function (result) {
@@ -206,7 +211,7 @@
     </script>
     <script>   
         $.getJSON("Greeter.json", function(result) {            
-                abi = result.abi
+                abi = result
                 //Fetch Value from Smart Contract
                 getValue()                
             });
@@ -235,12 +240,6 @@
             $('#greet').click(function() {
                 greet()
             });
-            
-            try {            
-                web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
-            } catch (error) {
-                alert(error)
-            }
         })
     </script>  
 </body>
