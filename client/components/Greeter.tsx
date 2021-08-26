@@ -52,11 +52,17 @@ export default function Greeter() {
     } 
   }
 
-  function setGreeting() {
+  async function setGreeting() {
     console.log('setGreeting')
     try {
       setGreetingButtonLoading(true)
       const contract = new web3.eth.Contract(abiItems, contractAddress)
+      await contract.methods.setGreeting(greeting).send({ from: account })
+      getGreeting()
+      setGreetingButtonLoading(false)
+      /* 
+      The following promise code seems not working well with WalletConnect
+      when connected with MetaMask mobile, more testing is required.
       contract.methods.setGreeting(greeting).send({ from: account }).then((result: any) => {
         console.log('setGreeting', result)
         getGreeting()
@@ -65,6 +71,7 @@ export default function Greeter() {
         console.error('error in then...catch', error)
         setGreetingButtonLoading(false)
       })
+      */
     } catch (error) {
       console.error('error in try...catch', error)
       setGreetingButtonLoading(false)
