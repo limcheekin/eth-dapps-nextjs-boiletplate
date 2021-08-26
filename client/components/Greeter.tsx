@@ -26,8 +26,8 @@ export default function Greeter() {
     return [value, input]
   }
 
-  function getValue() {
-    console.log('GetValue')
+  function getGreeting() {
+    console.log('getGreeting')
     const contract = new web3.eth.Contract(abiItems, contractAddress)
     contract.methods.greeting().call().then((result: any) => {
       setGreetingText(result)
@@ -59,7 +59,7 @@ export default function Greeter() {
       const contract = new web3.eth.Contract(abiItems, contractAddress)
       contract.methods.setGreeting(greeting).send({ from: account }).then((result: any) => {
         console.log('setGreeting', result)
-        getValue()
+        getGreeting()
         setGreetingButtonLoading(false)
       }).catch((error: any) => {
         console.error('error in then...catch', error)
@@ -73,7 +73,7 @@ export default function Greeter() {
 
   useEffect(() => {
     if (web3) {
-      getValue()
+      getGreeting()
     }
   })
 
@@ -81,7 +81,7 @@ export default function Greeter() {
     <div>
       {account ? (
         <Grid mt="5" templateColumns="repeat(2, 1fr)" templateRows="repeat(4, 1fr)" gap={3}>
-          <GridItem><Text textAlign="right" fontWeight="bold">Current Value</Text></GridItem>
+          <GridItem><Text textAlign="right" fontWeight="bold">Greeting</Text></GridItem>
           <GridItem><Text>{greetingText}</Text></GridItem>
           <GridItem align="end">
             <Button isFullWidth isLoading={greetingButtonLoading}
