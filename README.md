@@ -1,9 +1,9 @@
-# Ethereum dApps Next.js Boiletplate
+# Ethereum dApps Next.js Boiletplate [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 <p>
   <img alt="made for ethereum" src="https://img.shields.io/badge/made_for-ethereum-771ea5.svg">
   <img alt="to the moon" src="https://img.shields.io/badge/to_the-moon-fab127.svg">
   <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-blue.svg">
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 </p>
 
 The creation of Ethereum dApps Next.js Boiletplate is inspired by a truffle box [truffle-next](https://www.trufflesuite.com/boxes/truffle-next) with the
