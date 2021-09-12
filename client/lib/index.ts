@@ -6,6 +6,8 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 import { JsonRpcPayload, JsonRpcResponse } from 'web3-core-helpers'
 import { AbstractProvider } from 'web3-core/types'
 
+const infuraProjectId = process.env.NEXT_PUBLIC_INFURA_PROJECT_ID
+
 export declare class WalletConnectWeb3Provider extends WalletConnectProvider implements AbstractProvider {
   sendAsync(payload: JsonRpcPayload, callback: (error: Error | null, result?: JsonRpcResponse) => void): void;
 }
@@ -37,7 +39,7 @@ export async function handleInjectedProvider(dispatch: Dispatch<ActionType>) {
 export async function handleWalletConnect(dispatch: Dispatch<ActionType>) {
   //  Create WalletConnect Provider
   const provider = new WalletConnectProvider({
-    infuraId: "b874a2f145f84dc5a8466e5490816511",
+    infuraId: infuraProjectId,
   });
 
   // Enable session (triggers QR Code modal)
