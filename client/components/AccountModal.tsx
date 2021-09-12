@@ -32,7 +32,6 @@ export default function AccountModal({ isOpen, onClose }: Props) {
     4: 'rinkeby.',
     5: 'goerli.',
   }
-  console.log('chainPath', provider && chainIdPaths[parseInt(provider.chainId)])
   const chainPath = provider && chainIdPaths[parseInt(provider.chainId)]
 
   async function handleDeactivateAccount() {
