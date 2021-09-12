@@ -32,3 +32,11 @@ jobs:
         python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - run: python --version
+    - name: Clone SmartBugs Repo   
+      run: git clone https://github.com/smartbugs/smartbugs.git
+    - name: Install SmartBugs Dependencies
+      run: cd smartbugs;pip install -r requirements.txt
+    - name: Run SmartBugs Analysis
+      run: cd smartbugs;python smartBugs.py --tool all --file ../contracts
+
+
