@@ -108,6 +108,3 @@ build/
 
 # Ignore vscode
 .vscode/
-
-# Ignore .secret
-.secret

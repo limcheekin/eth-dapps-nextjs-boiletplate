@@ -17,11 +17,9 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
+require('dotenv').config()
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+const infuraProjectId = process.env.INFURA_PROJECT_ID
 
 module.exports = {
   /**
@@ -75,12 +73,10 @@ module.exports = {
     // It's important to wrap the provider as a function.
     rinkeby: {
       provider: () => {
-        const HDWalletProvider = require('@truffle/hdwallet-provider');
-        const fs = require('fs');
-        const privateKey = fs.readFileSync(".secret").toString().trim();
+        const privateKey = process.env.RINKEBY_PRIVATE_KEY;
         new HDWalletProvider(
           privateKey,
-          `https://rinkeby.infura.io/v3/b874a2f145f84dc5a8466e5490816511`
+          `https://rinkeby.infura.io/v3/${infuraProjectId}`
         )
       },
       network_id: 4, // Rinkeby's id
