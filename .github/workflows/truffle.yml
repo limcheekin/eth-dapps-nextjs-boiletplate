@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14'
+    - name: Show NodeJS version    
       run: npm --version
     - name: Create .env file
       run: echo "${{ secrets.DOT_ENV }}" > .env
@@ -33,6 +34,7 @@ jobs:
       with:
         python-version: 3.8 # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+    - name: Show Python version
       run: python --version
     - name: Clone SmartBugs Repo   
       run: git clone https://github.com/smartbugs/smartbugs.git
