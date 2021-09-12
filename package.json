@@ -2,5 +2,8 @@
   "dependencies": {
     "@truffle/hdwallet-provider": "^1.5.0",
     "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "eth-gas-reporter": "^0.2.22"
   }
 }
