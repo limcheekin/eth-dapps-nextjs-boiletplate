@@ -60,7 +60,11 @@ Steps to run the Greeter smart contract locally:
         # or
         yarn
         ```
-    - Create a `.secret` file with private key of your Rinkeby account.
+    - Create a `.env` file with Infura Project ID and private key of your Rinkeby account, for example:
+        ```
+        INFURA_PROJECT_ID=b874a2f145f84dc5a8466e5490816789
+        RINKEBY_PRIVATE_KEY=e0adc9a1b4818153aa47fee3f5160179bbb4f14157a971c732c27e2e35f99c9e
+        ```
     - Run the `truffle migrate --network rinkeby` command to deploy smart contract to Rinkeby network.
 
 
