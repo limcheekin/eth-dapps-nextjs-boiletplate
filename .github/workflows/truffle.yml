@@ -15,10 +15,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - name: Setup NodeJS 14
+      uses: actions/setup-node@v2
       with:
         node-version: '14'
-    - run: npm --version
+      run: npm --version
     - name: Create .env file
       run: echo "${{ secrets.DOT_ENV }}" > .env
     - name: Install Truffle
@@ -27,11 +28,12 @@ jobs:
       run: npm install      
     - name: Run Truffle Test  
       run: truffle test
-    - uses: actions/setup-python@v2
+    - name: Setup Python 3.8  
+      uses: actions/setup-python@v2
       with:
-        python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        python-version: 3.8 # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-    - run: python --version
+      run: python --version
     - name: Clone SmartBugs Repo   
       run: git clone https://github.com/smartbugs/smartbugs.git
     - name: Install SmartBugs Dependencies
