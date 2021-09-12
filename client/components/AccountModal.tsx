@@ -25,10 +25,19 @@ type Props = {
 export default function AccountModal({ isOpen, onClose }: Props) {
   const { globalState, dispatch } = useContext(globalContext)
   const { account, provider } = globalState
+  const chainIdPaths = {
+    1: '', // mainnet
+    42: 'kovan.',
+    3: 'ropsten.',
+    4: 'rinkeby.',
+    5: 'goerli.',
+  }
+  console.log('chainPath', provider && chainIdPaths[parseInt(provider.chainId)])
+  const chainPath = provider && chainIdPaths[parseInt(provider.chainId)]
 
   async function handleDeactivateAccount() {
     //deactivate();
-    if (!provider.isMetaMask) { // isWalletConnect then
+    if (provider && !provider.isMetaMask) { // isWalletConnect then
       await provider.disconnect()
     }
     dispatch({ type: 'CLEAR_STATE'})
@@ -120,11 +129,13 @@ export default function AccountModal({ isOpen, onClose }: Props) {
                 <CopyIcon mr={1} />
                 Copy Address
               </Button>
+              {
+              chainPath?
               <Link
                 fontSize="sm"
                 display="flex"
                 alignItems="center"
-                href={`https://rinkeby.etherscan.io/address/${account}`}
+                href={`https://${chainPath}etherscan.io/address/${account}`}
                 isExternal
                 color="gray.400"
                 ml={6}
@@ -132,10 +143,11 @@ export default function AccountModal({ isOpen, onClose }: Props) {
                   color: "whiteAlpha.800",
                   textDecoration: "underline",
                 }}
-              >
+              >  
                 <ExternalLinkIcon mr={1} />
                 View on Explorer
-              </Link>
+              </Link>:''
+              }
             </Flex>
           </Box>
         </ModalBody>
