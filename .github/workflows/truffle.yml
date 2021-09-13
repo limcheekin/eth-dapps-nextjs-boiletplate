@@ -30,11 +30,11 @@ jobs:
     - name: Run Truffle Test with CI=true for Codechecks  
       run: CI=true truffle test
     - name: Run Codechecks
-      run: CC_SECRET=${{ secrets.CC_SECRET }} npx codechecks  
+      run: ls gasReporterOutput.json;CC_SECRET=${{ secrets.CC_SECRET }} npx codechecks  
     - name: Run Test Coverage
       run: truffle run coverage
     - name: Generate .coveralls.yml file
-      run: echo "repo_token: ${{ secrets.COVERALLS_TOKEN }}" > .coveralls.yml 
+      run: echo "repo_token\: ${{ secrets.COVERALLS_TOKEN }}" > .coveralls.yml 
     - name: Send Coverage Info to CoverAlls
       run: cat coverage/lcov.info | npx coveralls
     - name: Setup Python 3.8  
