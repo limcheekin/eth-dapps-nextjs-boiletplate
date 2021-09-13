@@ -34,7 +34,7 @@ jobs:
     - name: Run Test Coverage
       run: truffle run coverage
     - name: Generate .coveralls.yml file
-      run: echo "repo_token\: ${{ secrets.COVERALLS_TOKEN }}" > .coveralls.yml 
+      run: echo "${{ secrets.DOT_COVERALLS_YML }}" > .coveralls.yml 
     - name: Send Coverage Info to CoverAlls
       run: cat coverage/lcov.info | npx coveralls
     - name: Setup Python 3.8  
