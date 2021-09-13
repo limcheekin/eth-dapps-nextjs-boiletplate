@@ -53,7 +53,7 @@ jobs:
     - name: Run SmartBugs Analysis
       run: DIR=$(pwd);cd smartbugs;python smartBugs.py --tool all --file $DIR/contracts/Greeter.sol
     - name: Move SmartBugs Results to Parent Directory
-      run: cd smartbugs;mv results ../
+      run: rm -r results && cd smartbugs;mv results ../
     - name: Commit SmartBugs Results
       uses: EndBug/add-and-commit@v7
       with:
