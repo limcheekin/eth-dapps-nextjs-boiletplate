@@ -30,7 +30,7 @@ jobs:
     - name: Run Truffle Test with CI=true for Codechecks  
       run: CI=true truffle test
     - name: Run Codechecks
-      run: CC_SECRET= npx codechecks  
+      run: CC_SECRET=${{ secrets.CC_SECRET }} npx codechecks  
     - name: Setup Python 3.8  
       uses: actions/setup-python@v2
       with:
