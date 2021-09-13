@@ -92,11 +92,11 @@ Steps to run the client locally:
     ```
     Open [http://localhost:3000](http://localhost:3000) with your browser, you will see the screen of the React client:
     
-    ![Main Screen](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/main/doc/images/main.png "Main Screen")
+    ![Main Screen](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/main.png "Main Screen")
 
     If React is not your cup of tea, open [http://localhost:3000/static.html](http://localhost:3000/static.html) with your browser, you will see the screen of the JQuery HTML client:
 
-    ![JQuery HTML](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/main/doc/images/static.png "JQuery HTML")
+    ![JQuery HTML](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/static.png "JQuery HTML")
 
 3. Update the value of the `contractAddress` at line 8 of `client/component/Greeter.tsx` and at line 101 of `client/public/static.html`.
 
