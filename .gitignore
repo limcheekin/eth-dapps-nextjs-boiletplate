@@ -109,3 +109,6 @@ build/
 
 # Ignore vscode
 .vscode/
+
+# Ingore codechecks files
+gasReporterOutput.json
