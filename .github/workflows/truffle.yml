@@ -29,6 +29,8 @@ jobs:
       run: npm install      
     - name: Run Truffle Test with CI=true for Codechecks  
       run: CI=true truffle test
+    - name: Show gasReporterOutput.json
+      run: cat gasReporterOutput.json
     - name: Run Codechecks
       run: npx codechecks
       env:
