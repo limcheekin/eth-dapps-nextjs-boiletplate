@@ -1,0 +1,142 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "SmartCheck",
+          "fullDescription": {
+            "text": "Securify automatically checks for vulnerabilities and bad coding practices. It runs lexical and syntactical analysis on Solidity source code."
+          },
+          "informationUri": "https://tool.smartdec.net/",
+          "rules": [
+            {
+              "id": "Ignore_28",
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "SOLIDITY_PRAGMAS_VERSION"
+              }
+            },
+            {
+              "id": "Ignore_38",
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "SOLIDITY_VISIBILITY"
+              }
+            }
+          ],
+          "version": "0.0.12"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "Greeter"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "SOLIDITY_PRAGMAS_VERSION"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "^"
+                  },
+                  "startColumn": 16,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_28"
+        },
+        {
+          "message": {
+            "text": "SOLIDITY_VISIBILITY"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "constructor(){owner=msg.sender;}"
+                  },
+                  "startColumn": 4,
+                  "startLine": 11
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_38"
+        },
+        {
+          "message": {
+            "text": "SOLIDITY_VISIBILITY"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "constructor(stringmemory_greeting){greeting=_greeting;}"
+                  },
+                  "startColumn": 4,
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_38"
+        },
+        {
+          "message": {
+            "text": "SOLIDITY_VISIBILITY"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "addressowner;"
+                  },
+                  "startColumn": 4,
+                  "startLine": 8
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_38"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}
