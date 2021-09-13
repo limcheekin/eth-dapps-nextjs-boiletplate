@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.8.0;
 
 // REF: https://github.com/ethereum/ethereum-org/blob/master/views/content/greeter.md
 
