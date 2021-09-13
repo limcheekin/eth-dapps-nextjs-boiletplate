@@ -4,6 +4,7 @@
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
+    "@codechecks/client": "^0.1.11",
     "eth-gas-reporter": "^0.2.22"
   }
 }
