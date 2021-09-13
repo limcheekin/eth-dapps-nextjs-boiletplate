@@ -51,6 +51,6 @@ jobs:
     - name: Install SmartBugs Dependencies
       run: cd smartbugs;pip install -r requirements.txt
     - name: Run SmartBugs Analysis
-      run: DIR=$(pwd);cd smartbugs;python smartBugs.py --tool all --file $DIR/contracts
+      run: DIR=$(pwd);cd smartbugs;python smartBugs.py --tool all --file $DIR/contracts/Greeter.sol
 
 
