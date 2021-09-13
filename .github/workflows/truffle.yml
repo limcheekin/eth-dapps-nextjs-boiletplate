@@ -55,15 +55,9 @@ jobs:
     - name: Move SmartBugs Results to Parent Directory
       run: cd smartbugs;mv results ../
     - name: Commit SmartBugs Results
-      id: commit
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "github-actions"
-        git add results
-        git commit -m "chore: added smartbugs results"      shell: bash
-    - name: Push changes
-      if: steps.commit.outputs.push == 'true'
-      uses: ad-m/github-push-action@master
+      uses: EndBug/add-and-commit@v7
       with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-
+        author_name: github-actions
+        author_email: action@github.com
+        message: 'chore: added smartbugs results'
+        add: 'results'
