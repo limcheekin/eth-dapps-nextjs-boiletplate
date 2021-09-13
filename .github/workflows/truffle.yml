@@ -48,9 +48,22 @@ jobs:
       run: python --version
     - name: Clone SmartBugs Repo   
       run: git clone https://github.com/smartbugs/smartbugs.git
-    - name: Install SmartBugs Dependencies
-      run: cd smartbugs;pip install -r requirements.txt
+    - name: Remove SmartBugs Results and Install SmartBugs Dependencies
+      run: cd smartbugs;rm -r results;pip install -r requirements.txt
     - name: Run SmartBugs Analysis
       run: DIR=$(pwd);cd smartbugs;python smartBugs.py --tool all --file $DIR/contracts/Greeter.sol
-
+    - name: Move SmartBugs Results to Parent Directory
+      run: cd smartbugs;mv results ../
+    - name: Commit SmartBugs Results
+      id: commit
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "github-actions"
+        git add results
+        git commit -m "chore: added smartbugs results"      shell: bash
+    - name: Push changes
+      if: steps.commit.outputs.push == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
 
