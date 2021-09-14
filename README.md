@@ -84,7 +84,13 @@ Steps to run the client locally:
     # or
     yarn
     ```
-2. Run the development server
+2. Update the following environment variables located in [client/.env.local](client/.env.local):
+    ```
+    NEXT_PUBLIC_GREETER_CONTRACT_ADDRESS=0x...
+    NEXT_PUBLIC_INFURA_PROJECT_ID=YOUR_INFURA_PROJECT_ID
+    ```
+
+3. Run the development server
     ```bash
     npm run dev
     # or
@@ -98,7 +104,7 @@ Steps to run the client locally:
 
     ![JQuery HTML](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/static.png "JQuery HTML")
 
-3. Update the value of the `contractAddress` at line 8 of `client/component/Greeter.tsx` and at line 101 of `client/public/static.html`.
+3. Update the value of the `contractAddress` of the [client/public/static.html](client/public/static.html#L101).
 
 4. Run with MetaMask
     
