@@ -15,32 +15,39 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Setup NodeJS 14
       uses: actions/setup-node@v2
       with:
         node-version: '14'
     - name: Show NodeJS version    
       run: npm --version
+    
     - name: Create .env file
       run: echo "${{ secrets.DOT_ENV }}" > .env
+    
     - name: Install Truffle
       run: npm install truffle -g
+    
     - name: Install Truffle Dependencies
       run: npm install      
+    
     - name: Run Truffle Test with CI=true for Codechecks  
       run: CI=true truffle test
-    - name: Show gasReporterOutput.json
-      run: cat gasReporterOutput.json
+
     - name: Run Codechecks
       run: npx codechecks
       env:
         CC_SECRET: ${{ secrets.CC_SECRET }}  
+    
     - name: Run Test Coverage
       run: truffle run coverage
+    
     - name: Generate .coveralls.yml file
-      run: echo "${{ secrets.DOT_COVERALLS_YML }}" > .coveralls.yml 
+      run: echo "${{ secrets.DOT_COVERALLS_YML }}" > .coveralls.yml
     - name: Send Coverage Info to CoverAlls
       run: cat coverage/lcov.info | npx coveralls
+    
     - name: Setup Python 3.8  
       uses: actions/setup-python@v2
       with:
@@ -48,12 +55,14 @@ jobs:
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - name: Show Python version
       run: python --version
-    - name: Clone SmartBugs Repo   
+    
+    - name: Clone SmartBugs Repo
       run: git clone https://github.com/smartbugs/smartbugs.git
     - name: Remove SmartBugs Results and Install SmartBugs Dependencies
       run: cd smartbugs;rm -r results;pip install -r requirements.txt
     - name: Run SmartBugs Analysis
       run: DIR=$(pwd);cd smartbugs;python smartBugs.py --tool all --file $DIR/contracts/Greeter.sol
+    
     - name: Move SmartBugs Results to Parent Directory
       run: rm -r results && cd smartbugs;mv results ../
     - name: Commit SmartBugs Results
