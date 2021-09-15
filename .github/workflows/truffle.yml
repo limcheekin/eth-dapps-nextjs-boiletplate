@@ -61,10 +61,20 @@ jobs:
     - name: Remove SmartBugs Results and Install SmartBugs Dependencies
       run: cd smartbugs;rm -r results;pip install -r requirements.txt
     - name: Run SmartBugs Analysis
-      run: DIR=$(pwd);cd smartbugs;python smartBugs.py --tool all --file $DIR/contracts/Greeter.sol
-    
+      run: |
+        solidityFiles=($(ls -I Migrations.sol contracts))
+        DIR=$(pwd);cd smartbugs
+        for sol in "${solidityFiles[@]}"
+        do
+          echo "Analysing $sol..."
+          python smartBugs.py --tool all --file $DIR/contracts/$sol
+        done
+           
     - name: Move SmartBugs Results to Parent Directory
-      run: rm -r results && cd smartbugs;mv results ../
+      run: |
+        [[ -d results ]] && rm -r results
+        cd smartbugs
+        mv results ../
     - name: Commit SmartBugs Results
       uses: EndBug/add-and-commit@v7
       with:
