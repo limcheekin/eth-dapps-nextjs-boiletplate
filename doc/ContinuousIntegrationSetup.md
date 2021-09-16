@@ -60,6 +60,7 @@ The `CI=true` flag is required for the creation of the `gasReporterOutput.json` 
   run: CI=true truffle test
 ```
 Expected output:
+
 ![Test Report](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/test.png "Test Report")
 
 ### Run Codechecks
@@ -71,6 +72,7 @@ This step will generate ETH gas report for smart contracts.
     CC_SECRET: ${{ secrets.CC_SECRET }}  
 ```
 Expected output:
+
 ![ETH Gas Report](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/eth-gas-report.png "ETH Gas Report")
 
 You need to request the `CC_SECRET` from https://app.codechecks.io/ for CI build.
@@ -81,6 +83,7 @@ You need to request the `CC_SECRET` from https://app.codechecks.io/ for CI build
   run: truffle run coverage
 ```
 Expected output:
+
 ![Coverage](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/coverage.png "Coverage")
 
 ### Send Coverage Data To Coveralls (Optional)
