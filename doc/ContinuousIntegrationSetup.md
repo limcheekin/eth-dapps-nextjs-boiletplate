@@ -60,8 +60,7 @@ The `CI=true` flag is required for the creation of the `gasReporterOutput.json` 
   run: CI=true truffle test
 ```
 Expected output:
-
-    ![Test Report](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/test.png "Test Report")
+![Test Report](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/test.png "Test Report")
 
 ### Run Codechecks
 This step will generate ETH gas report for smart contracts.
@@ -72,8 +71,7 @@ This step will generate ETH gas report for smart contracts.
     CC_SECRET: ${{ secrets.CC_SECRET }}  
 ```
 Expected output:
-
-    ![ETH Gas Report](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/eth-gas-report.png "ETH Gas Report")
+![ETH Gas Report](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/eth-gas-report.png "ETH Gas Report")
 
 You need to request the `CC_SECRET` from https://app.codechecks.io/ for CI build.
 
@@ -83,8 +81,7 @@ You need to request the `CC_SECRET` from https://app.codechecks.io/ for CI build
   run: truffle run coverage
 ```
 Expected output:
-
-    ![Coverage](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/coverage.png "Coverage")
+![Coverage](https://github.com/limcheekin/eth-dapps-nextjs-boiletplate/raw/master/doc/images/coverage.png "Coverage")
 
 ### Send Coverage Data To Coveralls (Optional)
 This step is optional. First, it generates `.coveralls.yml` file with `repo_token` defined in `DOT_COVERALLS_YML` secret. Then, it sends the coverage data to `coveralls`.
@@ -137,17 +134,17 @@ Run analysis by iterating over all solidity files except `Migrations.sol` and st
  Move the `results` directory out of `smartbugs` directory and store it in current GitHub repo.
  ```yaml         
 - name: Move SmartBugs Results to Parent Directory
-  run: |
+   run: |
     [[ -d results ]] && rm -r results
     cd smartbugs
     mv results ../
 - name: Commit SmartBugs Results
-  uses: EndBug/add-and-commit@v7
-  with:
-    author_name: github-actions
-    author_email: action@github.com
-    message: 'chore: added smartbugs results'
-    add: 'results'
+   uses: EndBug/add-and-commit@v7
+   with:
+     author_name: github-actions
+     author_email: action@github.com
+     message: 'chore: added smartbugs results'
+     add: 'results'
 ```
 
 ## Known Issues
