@@ -74,7 +74,7 @@ module.exports = {
     rinkeby: {
       provider: () => {
         const privateKey = process.env.RINKEBY_PRIVATE_KEY;
-        new HDWalletProvider(
+        return new HDWalletProvider(
           privateKey,
           `https://rinkeby.infura.io/v3/${infuraProjectId}`
         )
