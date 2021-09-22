@@ -1,0 +1,12 @@
+{
+  "contract": "Greeter",
+  "tool": "maian",
+  "start": 1632279408.3230429,
+  "end": 1632279430.2069685,
+  "duration": 21.883925676345825,
+  "analysis": {
+    "is_lock_vulnerable": false,
+    "is_prodigal_vulnerable": false,
+    "is_suicidal_vulnerable": false
+  }
+}
