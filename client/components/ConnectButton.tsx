@@ -1,5 +1,4 @@
 import { Button, Box, Text, SimpleGrid } from "@chakra-ui/react";
-import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
 import { handleInjectedProvider, handleWalletConnect } from "../lib";
 import { useContext, useState } from 'react';
@@ -25,7 +24,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
         await handleInjectedProvider(dispatch)
       const balance = await web3.eth.getBalance(account)
       console.log('balance', balance)
-      setEtherBalance(parseFloat(formatEther(balance)))
+      setEtherBalance(parseInt(balance)/1e18)
     } catch (error) {
       console.error(error)  
     } finally {
