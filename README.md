@@ -12,7 +12,7 @@ following improvements:
  - WalletConnect integration
  - Better UI with Chakra UI
  - JQuery HTML example (without React)
- - Github workflow to run `truffle test` on every `git push` 
+ - Github Actions workflow to run Continuous Integration build pipeline on every `git push`
 
 It is tested with [MetaMask](https://metamask.io/) Chrome extension and Android. I think it is good idea to test out [the dApps](https://eth-dapps-nextjs-boiletplate.vercel.app/) yourself before you continue further reading.
 
