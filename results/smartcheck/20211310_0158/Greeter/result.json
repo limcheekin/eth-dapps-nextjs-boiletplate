@@ -1,0 +1,41 @@
+{
+  "contract": "Greeter",
+  "tool": "smartcheck",
+  "start": 1634090448.0167415,
+  "end": 1634090474.4069583,
+  "duration": 26.390216827392578,
+  "analysis": [
+    {
+      "name": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 2,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "name": "SOLIDITY_VISIBILITY",
+      "patternId": 910067,
+      "severity": 1,
+      "line": 11,
+      "column": 4,
+      "content": "constructor(){owner=msg.sender;}"
+    },
+    {
+      "name": "SOLIDITY_VISIBILITY",
+      "patternId": 910067,
+      "severity": 1,
+      "line": 24,
+      "column": 4,
+      "content": "constructor(stringmemory_greeting){greeting=_greeting;}"
+    },
+    {
+      "name": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 8,
+      "column": 4,
+      "content": "addressowner;"
+    }
+  ]
+}
