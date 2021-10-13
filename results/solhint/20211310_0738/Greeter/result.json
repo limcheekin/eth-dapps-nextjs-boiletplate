@@ -1,0 +1,33 @@
+{
+  "contract": "Greeter",
+  "tool": "solhint",
+  "start": 1634110868.0029032,
+  "end": 1634110873.4028425,
+  "duration": 5.399939298629761,
+  "analysis": [
+    {
+      "file": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol",
+      "line": "17",
+      "column": "46",
+      "message": "Expected indentation of 8 spaces but found 45",
+      "level": "Error",
+      "type": "indent"
+    },
+    {
+      "file": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol",
+      "line": "17",
+      "column": "46",
+      "message": "Expected indentation of 8 spaces but found 45",
+      "level": "Error",
+      "type": "indent"
+    },
+    {
+      "file": "/home/runner/work/eth-dapps-nextjs-boiletplate/eth-dapps-nextjs-boiletplate/contracts/Greeter.sol",
+      "line": "17",
+      "column": "54",
+      "message": "Expected indentation of 8 spaces but found 53",
+      "level": "Error",
+      "type": "indent"
+    }
+  ]
+}
