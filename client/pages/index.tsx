@@ -41,16 +41,13 @@ function Home() {
 
       <footer className={styles.footer}>
         Powered by{' '}
-          <img className={styles.logo} src="/logos/ethereum.png" alt="Ethereum Logo" width="144" height="32" />
-          <img className={styles.logo} src="/logos/nextjs.png" alt="NextJS Logo" width="64" height="32" />
-          <img className={styles.logo} src="/logos/metamask.png" alt="MetaMask Logo" width="128" height="32" />
-          <img className={styles.logo} src="/logos/walletconnect.png" alt="WalletConnect Logo" width="128" height="32" />
+        <img className={styles.logo} src="/logos/ethereum.png" alt="Ethereum Logo" width="144" height="32" />
+        <img className={styles.logo} src="/logos/nextjs.png" alt="NextJS Logo" width="64" height="32" />
+        <img className={styles.logo} src="/logos/metamask.png" alt="MetaMask Logo" width="128" height="32" />
+        <img className={styles.logo} src="/logos/walletconnect.png" alt="WalletConnect Logo" width="128" height="32" />
       </footer>
-
-      
     </Layout>
   )
 }
-
 
 export default Home
