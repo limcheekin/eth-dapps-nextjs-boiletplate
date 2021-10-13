@@ -1,4 +1,4 @@
-# Ethereum dApps Next.js Boiletplate [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+# Ethereum dApps Next.js Boiletplate [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Add to Homescreen](https://img.shields.io/badge/Skynet-Add%20To%20Homescreen-00c65e?logo=skynet&labelColor=0d0d0d)](https://homescreen.hns.siasky.net/#/skylink/AQDeoXNWsZyfJhkSkRIzaThBlmzVKaySy9mpPvOmIcSIoA)
 
 <p>
   <img alt="made for ethereum" src="https://img.shields.io/badge/made_for-ethereum-771ea5.svg">
@@ -13,8 +13,9 @@ following improvements:
  - Better UI with Chakra UI
  - JQuery HTML example (without React)
  - Github Actions workflow to run Continuous Integration build pipeline on every `git push`
+ - Github Actions workflow to deploy dApps Front End to Skynet on every `git push`
 
-It is tested with [MetaMask](https://metamask.io/) Chrome extension and Android. I think it is good idea to test out [the dApps](https://eth-dapps-nextjs-boiletplate.vercel.app/) yourself before you continue further reading.
+It is tested with [MetaMask](https://metamask.io/) Chrome extension and Android. I think it is good idea to test out [the dApps](https://eth-dapps-nextjs-boiletplate.vercel.app/)(or [on Skynet](https://040dt8bjaqopp7p6349924hjd4s435jcqkkqp4mbr6kjtst64728h80.siasky.net/)) yourself before you continue further reading.
 
 The dApps is interacting with a [Greeter smart contract](https://github.com/ethereum/ethereum-org/blob/master/views/content/greeter.md) that running on Rinkeby testnet, hence you need some ETH in your wallet. If you don't have any, you can request some ETH from [Rinkeby Faucet](https://faucet.rinkeby.io/). 
 

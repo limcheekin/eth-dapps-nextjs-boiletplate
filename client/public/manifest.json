@@ -1,0 +1,31 @@
+{
+    "background_color": "#fff",
+    "display": "standalone",
+    "homepage_url": "https://eth-dapps-nextjs-boiletplate.vercel.app/",
+    "providedBy": {
+      "name": "Lim Chee Kin",
+      "url": "https://github.com/limcheekin/eth-dapps-nextjs-boiletplate"
+    },
+    "icons": [
+      {
+        "src": "./images/192x192_App_Icon.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "./images/512x512_App_Icon.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ],
+    "orientation": "portrait",
+    "name": "Ethereum dApps Next.js Boiletplate",
+    "description": "A dApps to demo the integration of MetaMask, WalletConnect and Greeter smart contract.",
+    "iconPath": "./images/256x256_App_Icon.png",
+    "short_name": "eth-dapps-nextjs-boiletplate",
+    "start_url": ".",
+    "theme_color": "#ffffff",
+    "skylink": "AQDeoXNWsZyfJhkSkRIzaThBlmzVKaySy9mpPvOmIcSIoA"
+  }
