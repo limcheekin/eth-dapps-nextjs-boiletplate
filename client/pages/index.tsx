@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Component } from 'react'
 import Layout from '../components/Layout'
@@ -42,19 +41,13 @@ function Home() {
 
       <footer className={styles.footer}>
         Powered by{' '}
-        <span className={styles.logo}>
-          <Image src="/logos/ethereum.png" alt="Ethereum Logo" width={144} height={32} />
-        </span>
-        <span className={styles.logo}>
-          <Image src="/logos/nextjs.png" alt="NextJS Logo" width={64} height={32} />
-        </span>
-        <span className={styles.logo}>
-          <Image src="/logos/metamask.png" alt="MetaMask Logo" width={128} height={32} />
-        </span>
-        <span className={styles.logo}>
-          <Image src="/logos/walletconnect.png" alt="WalletConnect Logo" width={128} height={32} />
-        </span>      
+          <img className={styles.logo} src="/logos/ethereum.png" alt="Ethereum Logo" width="144" height="32" />
+          <img className={styles.logo} src="/logos/nextjs.png" alt="NextJS Logo" width="64" height="32" />
+          <img className={styles.logo} src="/logos/metamask.png" alt="MetaMask Logo" width="128" height="32" />
+          <img className={styles.logo} src="/logos/walletconnect.png" alt="WalletConnect Logo" width="128" height="32" />
       </footer>
+
+      
     </Layout>
   )
 }

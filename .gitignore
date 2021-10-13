@@ -110,5 +110,8 @@ build/
 # Ignore vscode
 .vscode/
 
-# Ingore codechecks files
+# Ignore codechecks files
 gasReporterOutput.json
+
+# Ignore 'next export' out directory
+**/out/
