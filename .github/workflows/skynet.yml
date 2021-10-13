@@ -1,0 +1,39 @@
+# REF: https://docs.siasky.net/developer-guides/deploy-github-actions
+name: Deploy to Skynet
+
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup NodeJS 14
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Show NodeJS version    
+      run: npm --version
+
+    - name: Build and Export    
+      run: |
+        cd client
+        yarn
+        yarn build
+        yarn export
+
+    - name: Deploy to Skynet    
+      uses: SkynetLabs/deploy-to-skynet-action@v2
+      with:
+        upload-dir: client/out
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        registry-seed: ${{ secrets.SKYNET_REGISTRY_SEED || '' }}
+          
+          
