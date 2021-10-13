@@ -17,6 +17,7 @@ function Home() {
         <title>{title}</title>
         <meta name="description" content={title} />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <main className={styles.main}>
