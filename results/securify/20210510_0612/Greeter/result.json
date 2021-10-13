@@ -1,8 +1,0 @@
-{
-  "contract": "Greeter",
-  "tool": "securify",
-  "start": 1633414471.2931523,
-  "end": 1633414502.1958373,
-  "duration": 30.902684926986694,
-  "analysis": null
-}
