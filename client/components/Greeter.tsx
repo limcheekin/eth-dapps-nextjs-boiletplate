@@ -39,7 +39,8 @@ export default function Greeter() {
   async function setGreeting() {
     console.log('setGreeting')
     try {
-      await contract.methods.setGreeting(greeting).send({ from: account })
+      const result = await contract.methods.setGreeting(greeting).send({ from: account })
+      console.log('result', result)
       getGreeting()
     } catch (error) {
       console.error('error in try...catch', error)
