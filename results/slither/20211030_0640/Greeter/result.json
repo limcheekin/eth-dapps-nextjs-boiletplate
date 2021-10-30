@@ -1,0 +1,8 @@
+{
+  "contract": "Greeter",
+  "tool": "slither",
+  "start": 1635576280.3762548,
+  "end": 1635576291.277267,
+  "duration": 10.901012182235718,
+  "analysis": []
+}

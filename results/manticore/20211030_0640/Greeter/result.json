@@ -1,0 +1,8 @@
+{
+  "contract": "Greeter",
+  "tool": "manticore",
+  "start": 1635576176.7782576,
+  "end": 1635576199.1151302,
+  "duration": 22.336872577667236,
+  "analysis": []
+}

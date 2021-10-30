@@ -1,0 +1,8 @@
+{
+  "contract": "Greeter",
+  "tool": "honeybadger",
+  "start": 1635576012.517938,
+  "end": 1635576052.5708888,
+  "duration": 40.052950859069824,
+  "analysis": []
+}

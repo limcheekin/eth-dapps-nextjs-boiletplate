@@ -1,0 +1,8 @@
+{
+  "contract": "Greeter",
+  "tool": "osiris",
+  "start": 1635576206.5636375,
+  "end": 1635576231.735678,
+  "duration": 25.172040462493896,
+  "analysis": []
+}
