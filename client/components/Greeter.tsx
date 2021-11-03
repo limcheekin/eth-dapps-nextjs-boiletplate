@@ -16,7 +16,7 @@ export default function Greeter() {
   const [greetButtonLoading, greetButton] = useButton(handleGreet, 'Greet')
   const [greet, greetInput] = useInput(greetButtonLoading as boolean)
   const contractAddress = process.env.NEXT_PUBLIC_GREETER_CONTRACT_ADDRESS
-  const abiItems: AbiItem[] = web3 && JSON.parse(JSON.stringify(GreeterContract.abi))
+  const abiItems: AbiItem[] = web3 && GreeterContract.abi as AbiItem[]
   const contract = web3 && contractAddress && new web3.eth.Contract(abiItems, contractAddress)
     
   function getGreeting() {
