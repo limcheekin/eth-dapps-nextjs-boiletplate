@@ -46,6 +46,7 @@ function Home() {
         <img className={styles.logo} src="/logos/nextjs.png" alt="NextJS Logo" width="64" height="32" />
         <img className={styles.logo} src="/logos/metamask.png" alt="MetaMask Logo" width="128" height="32" />
         <img className={styles.logo} src="/logos/walletconnect.png" alt="WalletConnect Logo" width="128" height="32" />
+        { process.env.NEXT_PUBLIC_GITHUB_RUN_NUMBER && <div className={styles.logo}>b{process.env.NEXT_PUBLIC_GITHUB_RUN_NUMBER}</div> }
       </footer>
     </Layout>
   )
