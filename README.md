@@ -85,11 +85,15 @@ Steps to run the client locally:
     # or
     yarn
     ```
-2. Update the following environment variables located in [client/.env.local](client/.env.local):
+
+2. Create the `.env.local` file in the `client` directory and define the following environment variables:
     ```
     NEXT_PUBLIC_GREETER_CONTRACT_ADDRESS=0x...
     NEXT_PUBLIC_INFURA_PROJECT_ID=YOUR_INFURA_PROJECT_ID
     ```
+   As the `.env.local` file is not stored in the repo:
+   - For deployment to Vercel, you need to configure the [environment variables](https://vercel.com/docs/concepts/projects/environment-variables) there.
+   - For deployment to Skynet, you need to add the content of the `.env.local` file as `DOT_ENV_DOT_LOCAL` secret.
 
 3. Run the development server
     ```bash

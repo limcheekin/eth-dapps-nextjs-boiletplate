@@ -22,9 +22,10 @@ jobs:
     - name: Show NodeJS version    
       run: npm --version
 
-    - name: Build and Export    
+    - name: Build, Create .env.local file and Export
       run: |
         cd client
+        echo "${{ secrets.DOT_ENV_DOT_LOCAL }}" > .env.local
         yarn
         yarn build
         yarn export
