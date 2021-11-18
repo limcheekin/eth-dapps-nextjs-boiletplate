@@ -26,7 +26,7 @@ jobs:
       run: |
         cd client
         echo ${{ secrets.DOT_ENV_DOT_LOCAL }} > .env.local
-        echo ${{ github.run_number }} >> .env.local
+        printf "\nNEXT_PUBLIC_GITHUB_RUN_NUMBER=${{ github.run_number }}" >> .env.local
         yarn
         yarn build
         yarn export
