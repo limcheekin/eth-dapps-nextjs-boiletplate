@@ -25,8 +25,8 @@ jobs:
     - name: Build, Create .env.local file and Export
       run: |
         cd client
-        echo ${{ secrets.DOT_ENV_DOT_LOCAL }} > .env.local
-        printf "\nNEXT_PUBLIC_GITHUB_RUN_NUMBER=${{ github.run_number }}" >> .env.local
+        printf "${{ secrets.DOT_ENV_DOT_LOCAL }}\nNEXT_PUBLIC_GITHUB_RUN_NUMBER=${{ github.run_number }}" > .env.local
+        echo "" >> .env.local
         yarn
         yarn build
         yarn export
