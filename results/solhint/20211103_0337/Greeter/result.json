@@ -1,0 +1,33 @@
+{
+  "contract": "Greeter",
+  "tool": "solhint",
+  "start": 1635910842.0743418,
+  "end": 1635910848.427385,
+  "duration": 6.3530433177948,
+  "analysis": [
+    {
+      "file": "/data/Greeter.sol",
+      "line": "17",
+      "column": "46",
+      "message": "Expected indentation of 8 spaces but found 45",
+      "level": "Error",
+      "type": "indent"
+    },
+    {
+      "file": "/data/Greeter.sol",
+      "line": "17",
+      "column": "46",
+      "message": "Expected indentation of 8 spaces but found 45",
+      "level": "Error",
+      "type": "indent"
+    },
+    {
+      "file": "/data/Greeter.sol",
+      "line": "17",
+      "column": "54",
+      "message": "Expected indentation of 8 spaces but found 53",
+      "level": "Error",
+      "type": "indent"
+    }
+  ]
+}
