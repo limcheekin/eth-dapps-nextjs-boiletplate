@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "@truffle/hdwallet-provider": "^1.6.0",
-    "dotenv": "^10.0.0"
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "@codechecks/client": "^0.1.12",
     "coveralls": "^3.1.1",
-    "eth-gas-reporter": "^0.2.22",
-    "solidity-coverage": "^0.7.17"
+    "eth-gas-reporter": "^0.2.24",
+    "solidity-coverage": "^0.7.20"
   }
 }
