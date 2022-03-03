@@ -60,9 +60,9 @@ export default function Greeter() {
         <Grid mt="5" templateColumns="repeat(2, 1fr)" templateRows="repeat(4, 1fr)" gap={3}>
           <GridItem><Text textAlign="right" fontWeight="bold">Greeting</Text></GridItem>
           <GridItem><Text>{greetingText}</Text></GridItem>
-          <GridItem align="end">{greetingButton}</GridItem>
+          <GridItem alignItems="end">{greetingButton}</GridItem>
           <GridItem>{greetingInput}</GridItem>
-          <GridItem align="end">{greetButton}</GridItem>
+          <GridItem alignItems="end">{greetButton}</GridItem>
           <GridItem>{greetInput}</GridItem>
           <GridItem colSpan={2}>
             <Text fontWeight="bold" textAlign="center">{greetingOutput}</Text>
