@@ -1,4 +1,4 @@
-# REF: https://docs.siasky.net/developer-guides/deploy-github-actions
+# REF: https://docs.skynetlabs.com/developer-guides/deploy-github-actions
 name: Deploy to Skynet
 
 on: 
